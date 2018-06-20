@@ -93,19 +93,37 @@ body {
   height: 23px;
 }
 
+/* SNARE CSS  */
 #snare .snare,
 #snare .cellName {
   background-color: lightblue;
 }
 
+/* BASS CSS  */
 #bass .bass,
 #bass .cellName {
   background: lightgreen;
 }
 
+
+/* HIHAT CSS  */
+
 #hihat .hihat,
 #hihat .cellName {
   background: salmon;
+}
+
+/* BONGO CSS  */
+#bongo .bongo,
+#bongo .cellName {
+  background: #c7a3e0;
+}
+
+/* tambourine CSS  */
+
+#tambourine .tambourine,
+#tambourine .cellName {
+  background: #e5e837;
 }
 
 .recordImage {
@@ -144,22 +162,22 @@ body {
 
 .bar3{
   left: 30%;
-  background-color: #03256C
+  background-color: #e0de9f
 }
 
 .bar4 {
   left: 40%;
-  background-color: #335C81
+  background-color: #c3d893
 }
 
 .bar5 {
   left: 50%;
-  background-color: #1768AC
+  background-color: #c4f2d9
 }
 
 .bar6 {
   left: 60%;
-  background-color: #65AFFF
+  background-color: #98cfd3
 }
 
 .bar7 {

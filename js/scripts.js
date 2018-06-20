@@ -20,7 +20,20 @@ function playOnBeat(element, time, instrument) {
         if (letItLoop === true) {
           newAudio3.play();
         }
+      } else if(instrument === "bongo") {
+        var origAudio4 = document.getElementById("bongoSound");
+        var newAudio4 = origAudio4.cloneNode();
+        if (letItLoop === true) {
+          newAudio4.play();
+        }
+      } else if(instrument === "tambourine") {
+        var origAudio5 = document.getElementById("tambourineSound");
+        var newAudio5 = origAudio5.cloneNode();
+        if (letItLoop === true) {
+          newAudio5.play();
+        }
       }
+// INSERT Point for NEW Instruments
     }, time);
   }
 }
@@ -41,7 +54,8 @@ function loop1() {
       playOnBeat(this, 100 * i, "snare");
     });
   }
-};
+}; // Loop1 Ending CURLY
+
 function loop2() {
   $("#bass .spot").each(function(i) {
     $(this).delay(100 * i).animate({
@@ -51,7 +65,7 @@ function loop2() {
     }, 0);
     playOnBeat(this, 100 * i, "bass");
   });
-};
+}; // Loop2 Ending CURLY
 function loop3() {
   $("#hihat .spot").each(function(i) {
     $(this).delay(100 * i).animate({
@@ -61,15 +75,39 @@ function loop3() {
     }, 0);
     playOnBeat(this, 100 * i, "hihat");
   });
-};
-// end of trio of ghetto loops
+}; // Loop3 Ending CURLY
+function loop4() {
+  $("#bongo .spot").each(function(i) {
+    $(this).delay(100 * i).animate({
+      opacity: .1,
+    }, 100).animate({
+      opacity: 1,
+    }, 0);
+    playOnBeat(this, 100 * i, "bongo");
+  });
+}; // Loop4 Ending CURLY
 
+function loop5() {
+  $("#tambourine .spot").each(function(i) {
+    $(this).delay(100 * i).animate({
+      opacity: .1,
+    }, 100).animate({
+      opacity: 1,
+    }, 0);
+    playOnBeat(this, 100 * i, "tambourine");
+  });
+}; // Loop2 Ending CURLY
 
+// end of collection of ghetto loops
+
+// MERRRRRR I DO NOT Understand what happens here
 function loops() {
   if(letItLoop === true) {
     loop1();
     loop2();
     loop3();
+    loop4();
+    loop5();
     setTimeout(loops, 3200);
   }
 }
@@ -94,6 +132,8 @@ function barBounce() {
     });
   }
 }
+// MERRRRRR I DO NOT Understand what happens here
+
 
 $(document).ready(function() {
   $(".playButton").click(function() {
@@ -116,6 +156,7 @@ $(document).ready(function() {
     }, 3200)
     $(".record, .wan").removeClass("fa-spin");
   });
+    // SNARE Click Function BEGINNING
   $("#snare .spot").click(function() {
     if($(this).hasClass("selected")) {
       $(this).removeClass("selected snare");
@@ -123,20 +164,39 @@ $(document).ready(function() {
       $(this).addClass("selected snare");
     }
   });
+  // SNARE Click Function Ending
+  // BASS Click Function BEGINNING
   $("#bass .spot").click(function() {
     if($(this).hasClass("selected")) {
       $(this).removeClass("selected bass");
     } else {
       $(this).addClass("selected bass");
     }
-  });
+  });   // BASS Click Function Ending
+  // HiHat Click Function BEGINNING
   $("#hihat .spot").click(function() {
     if($(this).hasClass("selected")) {
       $(this).removeClass("selected hihat");
     } else {
       $(this).addClass("selected hihat");
     }
-  });
+  });   // HiHat Click Function Ending
+  // Bongo Click Function BEGINNING
+  $("#bongo .spot").click(function() {
+    if($(this).hasClass("selected")) {
+      $(this).removeClass("selected bongo");
+    } else {
+      $(this).addClass("selected bongo");
+    }
+  });   // Bongo Click Function Ending
+  // tambourine Click Function BEGINNING
+  $("#tambourine .spot").click(function() {
+    if($(this).hasClass("selected")) {
+      $(this).removeClass("selected tambourine");
+    } else {
+      $(this).addClass("selected tambourine");
+    }
+  });   // tambourine Click Function Ending
 
   $(".spot").hover(function() {
     $(this).parent().animate({
