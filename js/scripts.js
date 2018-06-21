@@ -31,7 +31,14 @@ function playOnBeat(element, time, instrument) {
         if (letItLoop === true) {
           newAudio5.play();
         }
+      } else if(instrument === "burger") {
+        var origAudio6 = document.getElementById("burgerSound");
+        var newAudio6 = origAudio6.cloneNode();
+        if (letItLoop === true) {
+          newAudio6.play();
+        }
       }
+
     }, time);
   }
 }
@@ -88,6 +95,17 @@ function loop5() {
   });
 };
 
+function loop6() {
+  $("#burger .spot").each(function(i) {
+    $(this).delay(100 * i).animate({
+      opacity: .1,
+    }, 100).animate({
+      opacity: 1,
+    }, 0);
+    playOnBeat(this, 100 * i, "burger");
+  });
+};
+
 function loops() {
   if(letItLoop === true) {
     loop1();
@@ -95,6 +113,7 @@ function loops() {
     loop3();
     loop4();
     loop5();
+    loop6();
     setTimeout(loops, 3200);
   }
 }
@@ -171,7 +190,7 @@ $(document).ready(function() {
     $(".record, .smallRecord").removeClass("fa-spin");
   });
   $(".clearButton").click(function() {
-    $(".beatsAll .spot").removeClass("selected snare bass hihat bongo keys");
+    $(".beatsAll .spot").removeClass("selected snare bass hihat bongo keys burger");
   });
 
 
@@ -190,10 +209,10 @@ $(document).ready(function() {
 
   $("#listOfBeats").on('click', 'li', function(){
     var chosenBeat = beatWan.savedBeats[$(this).val()];
-    $(".beatsAll .spot").removeClass("selected snare bass hihat bongo keys");
+    $(".beatsAll .spot").removeClass("selected snare bass hihat bongo keys burger");
     $(".beatsAll .spot").each(function(i){
         if(chosenBeat[i] === "selected") {
-        $(this).addClass("selected snare bass hihat bongo keys");
+        $(this).addClass("selected snare bass hihat bongo keys burger");
       }
     });
   });
@@ -201,7 +220,7 @@ $(document).ready(function() {
 
 
   $(".spot").click(function() {
-    $(this).toggleClass("selected snare bass hihat bongo keys");
+    $(this).toggleClass("selected snare bass hihat bongo keys burger");
   });
 
   $(".spot").hover(function() {
@@ -218,26 +237,26 @@ $(document).ready(function() {
   $(".spot").mousedown(function() {
     if ($(this).hasClass("selected")) {
       $(".spot").mouseenter(function() {
-        $(this).removeClass("selected snare bass hihat bongo keys");
+        $(this).removeClass("selected snare bass hihat bongo keys burger");
         $(document).mouseup(function() {
           $(".spot").off('mouseenter');
         })
       });
       $(".spot").mouseleave(function() {
-        $(this).removeClass("selected snare bass hihat bongo keys");
+        $(this).removeClass("selected snare bass hihat bongo keys burger");
         $(document).mouseup(function() {
           $(".spot").off('mouseleave');
         })
       });
     } else if (!$(this).hasClass("selected")) {
       $(".spot").mouseenter(function() {
-        $(this).addClass("selected snare bass hihat bongo keys");
+        $(this).addClass("selected snare bass hihat bongo keys burger");
         $(document).mouseup(function() {
           $(".spot").off('mouseenter');
         })
       });
       $(".spot").mouseleave(function() {
-        $(this).addClass("selected snare bass hihat bongo keys");
+        $(this).addClass("selected snare bass hihat bongo keys burger");
         $(document).mouseup(function() {
           $(".spot").off('mouseleave');
         })

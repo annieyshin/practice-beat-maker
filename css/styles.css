@@ -6,6 +6,7 @@ body {
 
 body {
   background-image: url("../img/background.png");
+  background-color: black;
 }
 
 .container {
@@ -13,6 +14,7 @@ body {
   padding-top: 30px;
   height: 100%;
   overflow: hidden;
+  /* border: 3px solid #FFB933; */
 }
 
 .theHeading {
@@ -20,12 +22,19 @@ body {
   margin-bottom: 25px;
   padding-bottom: 15px;
   border-bottom: 1px black solid;
-  letter-spacing: 7px;
+  letter-spacing: 9px;
   padding-left: 30px;
+  color: #FFB933;
+  font-weight: bold;
+  font-family: Rama Slab Exp Heavy;
+   text-shadow: 3px 2px #ff0000;
+   font-size: 42pt;
 }
 
 .smallRecord {
   margin: 0 5px 0 1px;
+  border-radius: 50%;
+  height: 100px;
 }
 
 .beatsAll {
@@ -129,23 +138,26 @@ body {
   background: #e5e837;
 }
 
+#burger .burger,
+#burger .cellName {
+  background: #FFB933;
+}
+
 .recordImage {
   display: flex;
   justify-content: center;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
 }
 
 .record {
   border-radius: 50%;
   border: 5px #575756 solid;
-  background-color: white;
-  width: 100%;
-  height: 100%;
-  max-width: 500px;
+  background-color: orange;
+  height: 350px;
 }
 
 .bars div {
-  width: 9%;
+  width: 8%;
   height: 0;
   position: absolute;
   bottom: 0;
@@ -199,4 +211,15 @@ body {
 
 .savedBeats {
   display: none;
+}
+
+#dancers {
+  height: 180px;
+  width: 100%;
+}
+
+.jumbotron {
+  background-color: black;
+  border: 6px solid orange;
+  height: 200px;
 }
